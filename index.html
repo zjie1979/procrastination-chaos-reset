@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>不拖了</title>
+  <meta name="description" content="克服拖延和工作混乱的 10 分钟自救打卡 PWA。">
+  <meta name="theme-color" content="#245e57">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="不拖了">
+  <link rel="manifest" href="./manifest.webmanifest?v=20260722t1">
+  <link rel="apple-touch-icon" href="./icon-180.png">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css?v=20260722t1">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">拖延 / 工作混乱自救</p>
+        <h1>不拖了</h1>
+        <p class="app-note">先把今天救回来：选一个状态，做一轮 10 分钟。</p>
+      </div>
+      <button class="icon-button" id="resetTodayBtn" type="button" aria-label="重置今天">↺</button>
+    </header>
+
+    <section class="view is-active" id="viewToday" aria-labelledby="todayTitle">
+      <div class="view-head compact">
+        <div>
+          <span class="label">首页</span>
+          <h2 id="todayTitle">今日自救</h2>
+        </div>
+        <span class="date-pill" id="todayDate"></span>
+      </div>
+
+      <section class="mode-panel" aria-labelledby="modeTitle">
+        <div class="panel-title">
+          <h3 id="modeTitle">现在卡在哪里？</h3>
+          <span id="modeHint"></span>
+        </div>
+        <div class="mode-grid" id="modeGrid"></div>
+      </section>
+
+      <section class="protocol-panel" aria-labelledby="protocolTitle">
+        <div class="protocol-head">
+          <div>
+            <span class="label">推荐流程</span>
+            <h2 id="protocolTitle"></h2>
+            <p id="protocolDesc"></p>
+          </div>
+          <div class="timer-box">
+            <strong id="timerText">10:00</strong>
+            <span>倒计时</span>
+          </div>
+        </div>
+        <div class="timer-actions">
+          <button class="primary-button" id="timerBtn" type="button">开始 10 分钟</button>
+          <button class="secondary-button" id="skipTimerBtn" type="button">不用计时</button>
+        </div>
+        <div class="step-list" id="stepList"></div>
+      </section>
+
+      <section class="finish-panel" aria-labelledby="finishTitle">
+        <div class="panel-title">
+          <h3 id="finishTitle">这一轮做到了什么？</h3>
+          <span id="progressText">0/4</span>
+        </div>
+        <textarea id="winInput" rows="3" maxlength="120" placeholder="写一句真实结果：比如“打开表格并改了第一行”"></textarea>
+        <button class="primary-button" id="finishBtn" type="button">完成这一轮</button>
+        <p class="micro-note" id="finishNote">只记录真实发生的一小步，不要求完美。</p>
+      </section>
+    </section>
+
+    <section class="view" id="viewMethods" aria-labelledby="methodsTitle">
+      <div class="view-head">
+        <div>
+          <span class="label">第二页</span>
+          <h2 id="methodsTitle">方法库</h2>
+          <p>从小红书高互动笔记里筛出的可执行方法，已改成能打卡的步骤。</p>
+        </div>
+      </div>
+      <div class="method-list" id="methodList"></div>
+      <section class="source-panel">
+        <h3>筛选口径</h3>
+        <p>优先选互动高、评论里有人反馈试过、能在 10 分钟内启动的方法。没有把“保证有效”“永久解决”这类夸张表达放进工具。</p>
+      </section>
+    </section>
+
+    <section class="view" id="viewRecords" aria-labelledby="recordsTitle">
+      <div class="view-head">
+        <div>
+          <span class="label">第三页</span>
+          <h2 id="recordsTitle">记录统计</h2>
+          <p>看你用过哪些方法，哪一种最能把你从卡住里拉出来。</p>
+        </div>
+      </div>
+      <section class="stats-grid" id="statsGrid"></section>
+      <section class="history-panel">
+        <div class="panel-title">
+          <h3>最近自救记录</h3>
+          <span id="historyCount"></span>
+        </div>
+        <div class="history-list" id="historyList"></div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="bottom-tabs" aria-label="主导航">
+    <button class="tab-button is-active" type="button" data-tab="today">今日</button>
+    <button class="tab-button" type="button" data-tab="methods">方法库</button>
+    <button class="tab-button" type="button" data-tab="records">记录</button>
+  </nav>
+
+  <script src="./app.js?v=20260722t1"></script>
+</body>
+</html>
